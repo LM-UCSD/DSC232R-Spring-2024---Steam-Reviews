@@ -25,4 +25,5 @@ We put this sub-sample into a pandas dataframe to visualize.
 From this sample, we converted the values to integers, as the whole table was stored as strings.
 
 The jupyter notebook contains several visualizations, including histograms and scatterplots comparing play time to up/down votes.
+
 NOTE: the x-axis for play time is on a logarithmic scale
