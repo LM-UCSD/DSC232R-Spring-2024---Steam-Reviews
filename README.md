@@ -10,7 +10,9 @@ Kaggle link to our data:
 https://www.kaggle.com/datasets/kieranpoc/steam-reviews/data 
 
 When loading a SDSC Jupyter session we used:
+
 4 cores
+
 8 GB per node
 
 The jupyter notebook contains code blocks to download the dataset.
