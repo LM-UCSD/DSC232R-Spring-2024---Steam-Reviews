@@ -16,7 +16,7 @@ Initial preprocessing summary:
 1. filtered reviews to english
 2. filtered voted_up to 0 and 1
 3. selected specific columns of interest
-4. Corrected data types from string to numeric as needed
+4. corrected data types from string to numeric as needed
 
 
 Milestone 3 
