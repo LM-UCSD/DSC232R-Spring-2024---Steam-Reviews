@@ -10,7 +10,9 @@ When loading a SDSC Jupyter session we used:
 
 8 GB per node
 
-The jupyter notebook contains code blocks to download the dataset.
+The data set is from https://www.kaggle.com/datasets/kieranpoc/steam-reviews/data
+Instructions on how to download the data and set up the environment can be found in Milestone-2
+https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/tree/Milestone-2
 
 Initial preprocessing summary:
 1. filtered reviews to english
