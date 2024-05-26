@@ -8,7 +8,7 @@ When loading a SDSC Jupyter session we used:
 
 4 cores
 
-8 GB per node
+16 GB per node
 
 The data set is from https://www.kaggle.com/datasets/kieranpoc/steam-reviews/data
 
@@ -18,8 +18,8 @@ https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/tree/Milestone-2
 Initial preprocessing summary:
 1. filtered reviews to english
 2. filtered voted_up to 0 and 1
-3. selected specific columns of interest
-4. corrected data types from string to numeric as needed
+3. Corrected Data Types for all columns
+4. Selected specific columns of interest
 
 
 Milestone 3 
