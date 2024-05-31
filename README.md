@@ -52,7 +52,7 @@ Using a 100+ Million Steam Review dataset sourced from Kaggle, our team seeks to
 
 Methods
 
-	Initial Data Analysis and Findings
+	Initial Data Analysis and Findings/Rationale for Study
 	
  	Visualizations of Data
 
@@ -62,7 +62,7 @@ For our initial preprocessing of the data, we first enforced the data types manu
 
 	Steps Taken to Clean and prepare the data
 
-	Feature selection and engineering
+	Feature selection
 
 Model 1: Logistic Regression
 
@@ -105,17 +105,17 @@ Discussion Section
 
 		Interpretation of Results
 
-		Strengths and Weaknesses
+		Strengths and Weaknesses of Model
 
-		Potential Biases and Limitations
+		Potential Biases and Limitations of Model
 
 	Model 2: Decision Tree
 
 		Interpretation of Results
 
-		Strengths and Weaknesses
+		Strengths and Weaknesses of Model
 
-		Potential Biases and Limitations
+		Potential Biases and Limitations of Model
 
 	Comparison
 
@@ -129,7 +129,7 @@ Discussion Section
 
 	Critique and Reflection
 
-		Self-assessment of the approach and methods
+		Self-critique of model/interpretation
 
 		Areas for improvement
 		
@@ -137,7 +137,7 @@ Conclusion
 
 	Summary
 
-	Future Directions
+	Future Work
 	
 	Final Thoughts
 
