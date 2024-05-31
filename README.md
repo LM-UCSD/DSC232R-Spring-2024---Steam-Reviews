@@ -42,3 +42,113 @@ Our current model is farily uncomplex as it is a logistic model, but there seems
 
 Given these results for further models we may want to consider, like decision trees and random forests. Our current model assumses a linear relationship between our features and the log-odds outcome, we may want to consider a decision tree as it is more interpretable than our current choice. Although a decision tree could also be prone to overfitting, may want to start simple with our logistic model and continue to add complexity with decision trees and then random forests. Random forests are robust to overfitting which seems to be a difficulty in our current model.
 
+Milestone 4
+Steam Reviews: A Prediction of Positive Reviews Based on Playtime
+
+Collaborators
+Chase Farrell, Lauren Marrs, Alison Cher, Zahra Ranjbar
+
+Introduction
+
+	Steam, a video game digital distribution service, hosts over 34,000 games and is one of the largest digital storefronts for video games. As part of their storefront, Steam hosts user reviews of the games they distribute. Users may leave a positive or negative review with text and other users may give feedback to that review whether it was helpful or otherwise. The portion of positive to negative reviews creates an overall metric and a recent metric ranging from Overwhelming Positive (95% over more positive), Very Positive (80% of more), Mostly Positive (70%-79%), Mixed (40%-69%), Mostly Negative (20%-39%), Overwhelmingly Negative (0%-19%). Generally, developers would prefer to have their games on the positive side as this should understandably increase sales overtime. This project attempts to provide insight into steam reviews to give developers a better understanding of why users leave negative or positive reviews. 
+Using a 100+ Million Steam Review dataset sourced from Kaggle, our team seeks to better understand the relationship between steam players and their reviews. Using the data collected by the kaggle dataset, our team specifically explores the relationship between user playtime and whether they’d leave a negative or positive review. By using a logistic regression model, we attempt to predict whether a user leaves a positive or a negative review (Are we going to add a decision tree as well). The results of which allow developers to make decisions on the prioritization of user playtime in their games.
+
+Methods
+
+	Initial Data Analysis and Findings
+	
+	Visualizations of Data
+
+Preprocessing
+
+We specified the correct data types for each column to ensure accurate data processing.
+
+We filtered the data to include only English reviews and reviews with valid "voted_up" values (0 or 1).
+
+We selected the columns relevant to our analysis: 'author_playtime_forever', 'author_playtime_at_review', 'author_playtime_last_two_weeks', and 'voted_up'.
+
+We removed rows with null values to ensure the integrity of the data.
+
+
+	Steps Taken to Clean and prepare the data
+
+	Feature selection and engineering
+
+Model 1: Logistic Regression
+
+	Parameter Choices and rationale
+
+	Model training and validation
+
+Model 2: Decision tree
+
+	Parameter Choices and rationale
+
+	Model training and validation
+
+Results
+
+	Model 1: Logistic Regression Results
+	
+		Performance/Accuracy
+	
+		Visualization of Model
+
+	Model 2: Decision Tree Results
+	
+		Performance/Accuracy
+		
+		Visualization of Model
+
+Discussion Section
+
+	Model 1: Logistic Regression Results
+
+		Interpretation of Results
+
+		Strengths and Weaknesses
+
+		Potential Biases and Limitations
+
+	Model 2: Decision Tree
+
+		Interpretation of Results
+
+		Strengths and Weaknesses
+
+		Potential Biases and Limitations
+
+	Comparison
+
+		Compare the logistic regression and decision tree
+		
+	Believability
+		
+		Credibility
+
+		Anomalies or unexpected findings
+
+	Critique and Reflection
+
+		Self-assessment of the approach and methods
+
+		Areas for improvement
+		
+Conclusion
+
+	Summary
+
+	Future Directions
+	
+	Final Thoughts
+
+
+Statement of Collaboration
+
+
+Final Model and Results and Summary
+
+	Final Model
+
+	Results Summary
+
