@@ -58,15 +58,6 @@ Methods
 
 Preprocessing
 
-We specified the correct data types for each column to ensure accurate data processing.
-
-We filtered the data to include only English reviews and reviews with valid "voted_up" values (0 or 1).
-
-We selected the columns relevant to our analysis: 'author_playtime_forever', 'author_playtime_at_review', 'author_playtime_last_two_weeks', and 'voted_up'.
-
-We removed rows with null values to ensure the integrity of the data.
-
-
 	Steps Taken to Clean and prepare the data
 
 	Feature selection and engineering
