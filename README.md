@@ -43,10 +43,6 @@ Our current model is farily uncomplex as it is a logistic model, but there seems
 Given these results for further models we may want to consider, like decision trees and random forests. Our current model assumses a linear relationship between our features and the log-odds outcome, we may want to consider a decision tree as it is more interpretable than our current choice. Although a decision tree could also be prone to overfitting, may want to start simple with our logistic model and continue to add complexity with decision trees and then random forests. Random forests are robust to overfitting which seems to be a difficulty in our current model.
 
 Milestone 4
-Steam Reviews: A Prediction of Positive Reviews Based on Playtime
-
-Collaborators
-Chase Farrell, Lauren Marrs, Alison Cher, Zahra Ranjbar
 
 Introduction
 
