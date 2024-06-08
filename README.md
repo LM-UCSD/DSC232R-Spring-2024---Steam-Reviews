@@ -47,10 +47,10 @@ When loading a SDSC Jupyter session we used:
 ### 2.1 Data Exploration
 
 Techniques we used to explore our data include:
-- Reviewing data types
-- Summary statistics
-- Histogram visualization
-- Identifying basic trends between features
+- Reviewing data types using `.dtypes`
+- Summary statistics using `.describe()`
+- Histogram visualization using `sns.histplot`
+- Identifying basic trends between features using a Pearson Correlation Matrix
 
 ### 2.2 Preprocessing
 
@@ -59,8 +59,25 @@ Preprocessing techniques:
 - Filtered reviews to english
 - Filtered voted_up to 0 and 1
 - Selected specific columns of interest
-- Removed null values
+- Removed null values using `.na.drop`
 
+To re-cast data types, first establish a list of `[('feature name', 'data type')]` and then:
+```
+for pair in types:
+    column_name = pair[0]
+    data_type = pair[1]
+    Steam_data = Steam_data.withColumn(column_name, col(column_name).cast(data_type))
+```
+
+To select certain features of interest:
+```
+Select_Steam = Steam_data.select(
+    'author_playtime_forever',
+    'author_playtime_at_review',
+    'author_playtime_last_two_weeks',
+    'voted_up'
+).cache()
+```
 
 ### 2.3 Model 1: Logistic Regression
 
@@ -72,11 +89,8 @@ Model setup:
 
 ```
 train_data, test_data = df.randomSplit([0.8, 0.2], seed=42)
-
 log_reg = LogisticRegression(featuresCol="features", labelCol="voted_up")
-
 log_reg_model = log_reg.fit(train_data)
-
 param = [0.01, 0.1, 1, 10, 100]
 ```
 
@@ -100,6 +114,22 @@ for i in param:
 
 ### 2.4 Model 2: Decision Tree
 
+- Train Test Split: Random split 80/20
+- Evaluator: Multiclass Classification Evaluator with Accuracy metric
+
+Model setup:
+
+```
+train_data, test_data = df.randomSplit([0.8, 0.2], seed=42)
+dec_tree=DecisionTreeClassifier(featuresCol="features", labelCol="label")
+decision_tree=dec_tree.fit(train_data)0]
+```
+
+Data generation:
+```
+predict=decision_tree.transform(test_data)
+predict.select("label", "prediction", "probability").show()
+```
 
 ## 3.0 Results
 
