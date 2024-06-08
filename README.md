@@ -132,7 +132,7 @@ Model setup:
 ```
 train_data, test_data = df.randomSplit([0.8, 0.2], seed=42)
 dec_tree=DecisionTreeClassifier(featuresCol="features", labelCol="label")
-decision_tree=dec_tree.fit(train_data)0]
+decision_tree=dec_tree.fit(train_data)
 ```
 
 Data generation:
