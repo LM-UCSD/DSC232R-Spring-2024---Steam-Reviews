@@ -269,6 +269,22 @@ While the model resulted in decent overall accuracy at 87%, this is a somewhat m
 
 Since this model may have some extensive over-fitting, and generally points to *any* playtime resulting in a postitive review, it would not be our model of choice compared to logistic regression as it would not be particularly helpful for game developers to understand their ratings.
 
+### 4.5 Methodology Review
+
+Our feature selection focused on playtime metrics as key predictors for review outcomes, driven by the hypothesis that playtime significantly influences user satisfaction and review helpfulness. We filtered reviews to English, converted relevant columns to integers, and handled null values to ensure our analysis was based on a clean and consistent dataset. This thorough preprocessing allowed us to build reliable models using logistic regression and decision trees, ultimately helping us understand the relationship between playtime and review sentiment.
+
+### 4.6 Believability of Results
+
+The results align with the intuitive understanding that higher playtime correlates with more positive reviews, lending credibility to our findings. Despite the overall trend, some anomalies were observed where users with high playtime left negative reviews, possibly due to personal preferences or specific issues with the game that were not captured by our model. These exceptions highlight the complexity of user behavior and the need for more sophisticated models to capture these nuances accurately.
+
+### 4.7 Shortcomings and Limitations
+
+The dataset contained some anomalies and was initially loaded as strings, requiring extensive preprocessing. Both models showed signs of overfitting, indicating that our feature selection and model complexity need further refinement. Our analysis was limited to English reviews, which may introduce language bias, and the correlation between playtime metrics may have influenced the model's performance. Additionally, the high prevalence of positive reviews in the dataset may bias the models towards predicting positive outcomes more frequently.
+
+### 4.8 Future Considerations
+
+Future studies could explore additional features such as review text sentiment, game genre, and user demographics to improve model performance. Introducing more complex models like Random Forests or Gradient Boosted Trees could help mitigate overfitting and capture more complex relationships in the data. Implementing more robust cross-validation techniques can help ensure that the models generalize better to unseen data. Additionally, addressing potential biases in the dataset and ensuring a more balanced representation of positive and negative reviews will enhance the reliability and applicability of the models' predictions.
+
 		
 ## 5.0 Conclusion
 
