@@ -60,6 +60,7 @@ Preprocessing techniques:
 - Filtered voted_up to 0 and 1
 - Selected specific columns of interest
 - Removed null values using `.na.drop`
+- Scaled data from 0 to 1
 
 To re-cast data types, first establish a list of `[('feature name', 'data type')]` and then:
 ```
@@ -77,6 +78,15 @@ Select_Steam = Steam_data.select(
     'author_playtime_last_two_weeks',
     'voted_up'
 ).cache()
+```
+
+To scale the data:
+```
+def scale_data(col_name):
+    max_val = Select_Steam.agg({col_name: "max"}).collect()[0][0]
+    return (col(col_name) / max_val).alias(col_name)
+columns_scaled = [scale_data(col_name) for col_name in Select_Steam.columns]
+Select_Steam = Select_Steam.select(columns_scaled)
 ```
 
 ### 2.3 Model 1: Logistic Regression
@@ -193,6 +203,19 @@ DenseMatrix([[ 1.        ,  0.7886514 ,  0.34475927, -0.0321441 , -0.03143936, 0
 ### 3.2 Preprocessing Results
 
 For our initial preprocessing of the data, we first enforced the data types manually as all the data types were initially loaded as strings. We then limited the reviews to English. This is not entirely necessary for our analysis that focused mostly on playtime; however, we wanted an English audience to understand the individual reviews if necessary. Most of the reviews are in English (>49%), but our results should be limited to English speakers reviewing games for this reason. Next we filtered the “voted_up” column to only include 0 (negative review) and 1 (positive review) . This was because there were anomalies in the data; for example, we found a review in this column in one of the cells. We then limited our analysis to the voted up, playtime in the last two weeks, playtime at review, and playtime overall as we are only studying this relationship and did not need any other columns as they were not relevant for our specific study. Next we then ensured that no null values were present in our data. Finally we created a VectorAssembler set to skip invalid cells for use in PySpark machine learning.
+
+Before modeling our data, we scaled the colums-of-interest to 0.0 to 1.0:
+```
++-------+-----------------------+-------------------------+------------------------------+------------------+
+|summary|author_playtime_forever|author_playtime_at_review|author_playtime_last_two_weeks|          voted_up|
++-------+-----------------------+-------------------------+------------------------------+------------------+
+|  count|               49791098|                 49791100|                      49791098|          49791100|
+|   mean|   0.002459840872121...|     0.001430063576039...|          0.001390626967584...| 0.866579951035426|
+| stddev|   0.007908887264295943|     0.005339525538023296|          0.010334084814016369|0.3400281485714814|
+|    min|                    0.0|                      0.0|                           0.0|               0.0|
+|    max|                    1.0|                      1.0|                           1.0|               1.0|
++-------+-----------------------+-------------------------+------------------------------+------------------+
+```
 
 
 ### 3.3 Model 1 Results: Logistic Regression
