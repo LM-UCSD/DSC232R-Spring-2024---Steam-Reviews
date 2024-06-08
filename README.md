@@ -151,6 +151,8 @@ Conclusion
 
 Statement of Collaboration
 Lauren Marrs: I did a lot of the editing for the write-ups, worked on planning and laying out the code to explore our topic, and contributed to the final debugging to ensure our notebooks ran successfully.
+Sahra Ranjbar: I worked on the fitting graph and running the models to ensure no need for editing. 
+
 
 Final Model and Results and Summary
 
