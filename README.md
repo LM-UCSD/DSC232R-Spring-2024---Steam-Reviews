@@ -60,7 +60,22 @@ Data Exploration
 
 To explore the data, we first checked the data type of all the features. From here, we selected features of interest and reviewed a few lines of the data table to understand the scope of the contents. After this, we pulled a .describe() command to see summary statistics of the data as well as a count of rows.
 
+
 ![Figure 1](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/4153bdbc-4973-4567-a838-03330677b9d7)
+
+![Figure 2](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/f5d099e5-4c24-41b2-96cd-fa0a2de98e28)
+
+![Figure 3](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/d1ab2ee8-74ea-4069-a0c9-6ef897b56f6c)
+
+![Figure 4](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/4016e2a5-1aee-4e0b-b0f7-447a9ca98a1d)
+
+![Figure 5](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/da2a677a-8ad0-45aa-add0-0017f9537a45)
+
+![Figure 6](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/b6a7dcb5-0919-45e2-a165-2efa7a2fa276)
+
+![Figure 7](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/fb66d55c-6a79-4bf9-ae04-8abd12822f0e)
+
+![Figure 8](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/70db058d-4da7-4ad9-a8d7-e3c1e2236ff2)
 
 
 Preprocessing
