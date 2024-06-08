@@ -11,13 +11,36 @@ Our team is seeking to explore the “100 Million+ Steam Reviews” dataset from
 Kaggle link to our data:
 https://www.kaggle.com/datasets/kieranpoc/steam-reviews/data 
 
-Milestone 2:
+Description from Kaggle:
+author
+ - steamid
+ - number of games owned
+ - number of reviews
+ - playtime all time
+ - playtime over the last 2 weeks
+ - playtime at the time of the review
+ - when they last played the game
+language
+time created
+time updated
+if the review was positive or negative
+number of people who voted the review up
+number of people who voted the review funny
+a helpfulness score (steam generated)
+number of comments
+if the user purchased the game on Steam
+if the user checked a box saying they got the app for free
+if the user posted this review while the game was in Early Access
+developer response (if any)
+when the developer responded (if applicable)
 
 When loading a SDSC Jupyter session we used:
 
 4 cores
 
 8 GB per node
+
+Milestone 2:
 
 The jupyter notebook contains code blocks to download the dataset.
 
@@ -162,8 +185,14 @@ Conclusion
 
 
 Statement of Collaboration
-Lauren Marrs: I did a lot of the editing for the write-ups, worked on planning and laying out the code to explore our topic, and contributed to the final debugging to ensure our notebooks ran successfully.
+
+Lauren Marrs: I contributed editing for the write-ups, worked on planning and laying out the code to explore our topic, and did final debugging to ensure our notebooks ran successfully.
+
 Sahra Ranjbar: I worked on the fitting graph and running the models to ensure no need for editing. 
+
+Chase Farrell: 
+
+Alison Cher: 
 
 
 Final Model and Results and Summary
