@@ -12,7 +12,7 @@ Kaggle link to our data:
 https://www.kaggle.com/datasets/kieranpoc/steam-reviews/data 
 
 Description from Kaggle:
-author
+- author
  - steamid
  - number of games owned
  - number of reviews
@@ -20,19 +20,19 @@ author
  - playtime over the last 2 weeks
  - playtime at the time of the review
  - when they last played the game
-language
-time created
-time updated
-if the review was positive or negative
-number of people who voted the review up
-number of people who voted the review funny
-a helpfulness score (steam generated)
-number of comments
-if the user purchased the game on Steam
-if the user checked a box saying they got the app for free
-if the user posted this review while the game was in Early Access
-developer response (if any)
-when the developer responded (if applicable)
+- language
+- time created
+- time updated
+- if the review was positive or negative
+- number of people who voted the review up
+- number of people who voted the review funny
+- a helpfulness score (steam generated)
+- number of comments
+- if the user purchased the game on Steam
+- if the user checked a box saying they got the app for free
+- if the user posted this review while the game was in Early Access
+- developer response (if any)
+- when the developer responded (if applicable)
 
 When loading a SDSC Jupyter session we used:
 
