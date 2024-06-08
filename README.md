@@ -180,6 +180,7 @@ This graph just looks like noise for the most part, if there is a patern betweee
 
 Finally, a Pearson Correlation Matrix was constructed to validate our selection:
 
+```
 Features across/down: 'author_playtime_forever','author_playtime_at_review','author_playtime_last_two_weeks','author_num_games_owned','author_num_reviews','voted_up'
 
 DenseMatrix([[ 1.        ,  0.7886514 ,  0.34475927, -0.0321441 , -0.03143936, 0.0222244 ],
@@ -188,7 +189,7 @@ DenseMatrix([[ 1.        ,  0.7886514 ,  0.34475927, -0.0321441 , -0.03143936, 0
              [-0.0321441 , -0.02643021, -0.01921135,  1.        ,  0.27862913, -0.03877855],
              [-0.03143936, -0.02726179, -0.01409563,  0.27862913,  1.        , -0.03944351],
              [ 0.0222244 , -0.00461497,  0.01132714, -0.03877855, -0.03944351, 1.        ]])
-
+```
 ### 3.2 Preprocessing Results
 
 For our initial preprocessing of the data, we first enforced the data types manually as all the data types were initially loaded as strings. We then limited the reviews to English. This is not entirely necessary for our analysis that focused mostly on playtime; however, we wanted an English audience to understand the individual reviews if necessary. Most of the reviews are in English (>49%), but our results should be limited to English speakers reviewing games for this reason. Next we filtered the “voted_up” column to only include 0 (negative review) and 1 (positive review) . This was because there were anomalies in the data; for example, we found a review in this column in one of the cells. We then limited our analysis to the voted up, playtime in the last two weeks, playtime at review, and playtime overall as we are only studying this relationship and did not need any other columns as they were not relevant for our specific study. Next we then ensured that no null values were present in our data. Finally we created a VectorAssembler set to skip invalid cells for use in PySpark machine learning.
