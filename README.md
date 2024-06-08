@@ -288,11 +288,15 @@ Future studies could explore additional features such as review text sentiment, 
 		
 ## 5.0 Conclusion
 
-	Summary
 
-	Future Work
-	
-	Final Thoughts
+#### Summary
+In this study, we explored the relationship between user playtime and review sentiment on Steam using a dataset of over 100 million reviews. We employed logistic regression and decision tree models to predict whether a review would be positive or negative based on various playtime metrics. Our findings indicate that higher playtime generally correlates with more positive reviews, though we faced challenges such as overfitting and a bias towards positive reviews in our dataset. Despite these limitations, our analysis provided valuable insights into how user engagement influences review sentiment.
+
+#### Future Work
+Future research should expand the feature set to include additional variables such as review text sentiment, game genre, and user demographics. This could provide a more comprehensive understanding of the factors influencing review sentiment. Employing more sophisticated models like Random Forests or Gradient Boosted Trees might help address overfitting issues and capture more complex relationships in the data. Additionally, a multilingual analysis would broaden the applicability of the findings, and balancing the dataset to include more negative reviews would enhance prediction reliability. Temporal analysis of review sentiments and incorporating temporal dynamics into the models would offer deeper insights into user behavior and the impact of game updates or external events. Finally, implementing more rigorous cross-validation approaches during model training would improve model robustness and generalizability.
+
+#### Final Thoughts
+This project highlighted the complexities of user behavior and the challenges of predictive modeling in a real-world context. Our logistic regression model provided a straightforward and interpretable approach, while the decision tree model underscored the need for careful tuning to avoid biases towards the majority class. Moving forward, incorporating more diverse features, advanced modeling techniques, and robust validation strategies will be crucial in refining our predictive capabilities and providing actionable insights for game developers. By addressing the limitations and expanding the scope of our analysis, future research can build upon our findings to develop more accurate and reliable models that better capture the nuances of user reviews on digital platforms like Steam.
 
 
 ## 6.0 Statement of Collaboration
