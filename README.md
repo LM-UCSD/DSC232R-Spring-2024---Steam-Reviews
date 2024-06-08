@@ -59,6 +59,7 @@ Methods
 Data Exploration
 
 To explore the data, we first checked the data type of all the features. From here, we selected features of interest and reviewed a few lines of the data table to understand the scope of the contents. After this, we pulled a .describe() command to see summary statistics of the data as well as a count of rows.
+
 ![Untitled](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/4153bdbc-4973-4567-a838-03330677b9d7)
 
 
