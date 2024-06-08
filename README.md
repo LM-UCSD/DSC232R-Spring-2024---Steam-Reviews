@@ -148,13 +148,13 @@ predict.select("label", "prediction", "probability").show()
 To explore the data, we first checked the data type of all the features. We converted the values to integers, as the whole table was stored as strings. From here, we selected features of interest and reviewed a few lines of the data table to understand the scope of the contents. After this, we pulled a .describe() command to see summary statistics of the data as well as a count of rows.
 ```
 +-------+-----------------------+-------------------------+------------------------------+------------------+
-|summary|author_playtime_forever|author_playtime_at_review|author_playtime_last_two_weeks|      	voted_up|
+|summary|author_playtime_forever|author_playtime_at_review|author_playtime_last_two_weeks|      voted_up|
 +-------+-----------------------+-------------------------+------------------------------+------------------+
-|  count|           	49791098|             	49791098|                  	49791098|      	49791098|
-|   mean| 	14778.687062092906|    	6978.960364822644|         	78.91529915648778|0.8665799657601445|
-| stddev| 	47516.476050580975|   	26057.819471451778|         	586.4386450258011|0.3400281326969518|
-|	min|                	0.0|                    	0|                       	0.0|           	0.0|
-|	max|          	6007985.0|              	4880175|                   	56748.0|           	1.0|
+|count|           	49791098|             	 49791098|                     49791098|      	    49791098|
+|mean| 	      14778.687062092906|    	6978.960364822644|            78.91529915648778|  0.8665799657601445|
+stddev|       47516.476050580975|      26057.819471451778|            586.4386450258011|  0.3400281326969518|
+|min|                	     0.0|                    	0|                          0.0|           	0.0|
+|max|          	       6007985.0|              	  4880175|                   	56748.0|           	1.0|
 +-------+-----------------------+-------------------------+------------------------------+------------------+
 ```
 We took a random .5% sample of the >100 million reviews, resulting in a 200,000 row sample to work with. We put this sub-sample into a pandas dataframe to visualize.
@@ -215,13 +215,13 @@ For our initial preprocessing of the data, we first enforced the data types manu
 Before modeling our data, we scaled the columns-of-interest to 0.0 to 1.0:
 ```
 +-------+-----------------------+-------------------------+------------------------------+------------------+
-|summary|author_playtime_forever|author_playtime_at_review|author_playtime_last_two_weeks|      	voted_up|
+|summary|author_playtime_forever|author_playtime_at_review|author_playtime_last_two_weeks|      voted_up|
 +-------+-----------------------+-------------------------+------------------------------+------------------+
-|  count|           	49791098|             	49791100|                  	49791098|      	49791100|
-|   mean|   0.002459840872121...| 	0.001430063576039...|      	0.001390626967584...| 0.866579951035426|
-| stddev|   0.007908887264295943| 	0.005339525538023296|      	0.010334084814016369|0.3400281485714814|
-|	min|                	0.0|                  	0.0|                       	0.0|           	0.0|
-|	max|                	1.0|                  	1.0|                       	1.0|           	1.0|
+|  count|           	49791098|             	  49791100|                  	49791098|      	49791100|
+|   mean|   0.002459840872121...|     0.001430063576039...|      	0.001390626967584...| 0.866579951035426|
+| stddev|   0.007908887264295943|     0.005339525538023296|         0.010334084814016369|   0.3400281485714814|
+|    min|                    0.0|                      0.0|                       	0.0|           	0.0|
+|    max|                    1.0|                      1.0|                       	1.0|           	1.0|
 +-------+-----------------------+-------------------------+------------------------------+------------------+
 ```
 
