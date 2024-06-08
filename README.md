@@ -162,31 +162,38 @@ We took a random .5% sample of the >100 million reviews, resulting in a 200,000 
 Next we generated figures of our desired columns of study. We went through each temporal measurement of playtime (Playtime Forever, Playtime Last Two Weeks, and Playtime at review), with whether it was upvoted or not also shown. First the play time forever:
 
 ![Figure 1](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/4153bdbc-4973-4567-a838-03330677b9d7)
+
 Figure 1
 
 This figure shows a relatively normal shape, with the majority of reviews being positive. The negative reviews seem to follow an approximately normal shape as well. Next we show this for the Last Two weeks
 
 ![Figure 2](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/087e0adb-ee40-4dfd-9d5a-8bb12a7c9ecc)
 8)
+
 Figure 2
+
 Overall, this shape is different than the Playtime forever, there seems to be more negative reviews as playtime increase, but there is a peak at the low end of the graph
 
 ![Figure 3](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/26560247-06ee-4271-8eff-6f128d4f5ebb)
+
 Figure 3
 
 To futher our exploration, we do want to look for relationships with upvotes and downvotes and see if the playtimes are related to one another. Below we pair Playtime Forever and Playtime in the last two weeks together.
 
 ![Figure 4](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/44844c6f-58c0-40a0-94b1-662f1c222483)
+
 Figure 4
 
 Next we compare playtime forever, and the playtime at review.
 
 ![Figure 5](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/856019d5-0f63-435b-9daa-32b08ad1e3d5)
+
 Figure 5
 
 Finally we compare the author's playtime in the last two weeks and author playtime at the review.
 
 ![Figure 6](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/0c37059f-f764-4214-a128-803ffea088c3)
+
 Figure 6
 
 Finally, a Pearson Correlation Matrix was constructed to validate our selection:
@@ -226,11 +233,13 @@ The first implementation of our model uses a logistic model. This was a logical 
 First, we used a model with a log loss metric and then an accuracy metric to evaluate the complexity of our model by examining the regularization parameter. In general, the model error rate sits ~39% for both test and train error in the log loss logistic model and stabilizes at around 13.58% for training error and 13.59% for test error in the accuracy logistic regression model. Which is not terrible performance, but we do have to keep in mind that much of the data is positive, and a positive result always may be a better predictor than the model that gives both positives and negatives. With the logistic regression model, it seems in general however, our ground truth seems to be true, more playtime seeks increased positive reviews.
 
 ![Figure 7](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/fb66d55c-6a79-4bf9-ae04-8abd12822f0e)
+
 Figure 7
 
 Our current model is fairly simple as it is a logistic regression model. In the log loss case, increasing the complexity (using a smaller regularization parameter) resulted in improvements to our test error, suggesting that we are likely to the left of the fitting graph and that complexity could improve our log loss model.
 
 ![Figure 8](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/163374052/ae50cf86-1e09-42a4-9f41-0ab41bd34397)
+
 Figure 8
 
 
@@ -345,8 +354,7 @@ Lauren Marrs:  Conducted final debugging and cleaning for code at each step and 
 
 Sahra Ranjbar: Worked on the fitting graph and running the models to ensure no need for editing and contributed to the write-up by writing the discussion and conclusions.
 
-Chase Farrell: Coded the preprocessing, contributed to debugging, and contributed to the write-up by writing an outline of the material, the introduction, the data exploration/pre-processing, and introduction.
+Chase Farrell: Coded the preprocessing and intial data exploration, contributed to debugging, and contributed to the write-up by writing an outline of the material, the introduction, and the data exploration/pre-processing.
 
 Alison Cher: Contributed bulk of the code for the ML algorithms and models.
 
-Alison Cher: Contributed bulk of the code for the ML algorithms and models.
