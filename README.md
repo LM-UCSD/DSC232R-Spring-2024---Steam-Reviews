@@ -137,9 +137,20 @@ predict.select("label", "prediction", "probability").show()
 
 To explore the data, we first checked the data type of all the features. We converted the values to integers, as the whole table was stored as strings. From here, we selected features of interest and reviewed a few lines of the data table to understand the scope of the contents. After this, we pulled a .describe() command to see summary statistics of the data as well as a count of rows. 
 
++-------+-----------------------+-------------------------+------------------------------+------------------+
+|summary|author_playtime_forever|author_playtime_at_review|author_playtime_last_two_weeks|          voted_up|
++-------+-----------------------+-------------------------+------------------------------+------------------+
+|  count|               49791098|                 49791098|                      49791098|          49791098|
+|   mean|     14778.687062092906|        6978.960364822644|             78.91529915648778|0.8665799657601445|
+| stddev|     47516.476050580975|       26057.819471451778|             586.4386450258011|0.3400281326969518|
+|    min|                    0.0|                        0|                           0.0|               0.0|
+|    max|              6007985.0|                  4880175|                       56748.0|               1.0|
++-------+-----------------------+-------------------------+------------------------------+------------------+
+
 We took a random .5% sample of the >100 million reviews, resulting in a 200,000 row sample to work with. We put this sub-sample into a pandas dataframe to visualize. 
 
-Next we generated figures of our desired columns of study. We went through each temporal measurement of playtime (Playtime Forever, Playtime Last Two Weeks, and Playtime at review), with whether it was upvoted or not also shown. First the play time forever
+Next we generated figures of our desired columns of study. We went through each temporal measurement of playtime (Playtime Forever, Playtime Last Two Weeks, and Playtime at review), with whether it was upvoted or not also shown. First the play time forever:
+
 ![Figure 1](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/4153bdbc-4973-4567-a838-03330677b9d7)
 
 This figure shows a relatively normal shape, with the majority of reviews being positive. The negative reviews seem to follow an approximately normal shape as well. In General there seems to be more reviews with more playtime, but low playtime games tend to be more negative. Other things this may show us is that there tends to be more positive reviews in our dataset. Next we show this for the Last Two weeks
@@ -167,6 +178,17 @@ There does seem to be a clear pattern here in the postiive direction between the
 
 This graph just looks like noise for the most part, if there is a patern betweeen the variables it is definitely not linear and not strong. There seems to be no pattern when comparing these two to each other. Seeing as there are no linear solutions that are obious to our questions. Our team seeked to use other means of predictive when users give positive or negative reviews, in order to make a prediction. The first choice could be a logistic regression as it can predict these binary outcomes, and the second choice could be a decision tree to visualize different decisions necessary in determining when a review will be positive. Thereout this paper, we seek to find a pattern that our initial data exploration does not make clear to us, although there are some catiousnary findings from the data exploration that we should keep in mind thereout, like the abundance of positive reviews that may bias the model towards a positive prediction.
 
+Finally, a Pearson Correlation Matrix was constructed to validate our selection:
+
+Features across/down: 'author_playtime_forever','author_playtime_at_review','author_playtime_last_two_weeks','author_num_games_owned','author_num_reviews','voted_up'
+
+DenseMatrix([[ 1.        ,  0.7886514 ,  0.34475927, -0.0321441 , -0.03143936, 0.0222244 ],
+             [ 0.7886514 ,  1.        ,  0.20948163, -0.02643021, -0.02726179, -0.00461497],
+             [ 0.34475927,  0.20948163,  1.        , -0.01921135, -0.01409563, 0.01132714],
+             [-0.0321441 , -0.02643021, -0.01921135,  1.        ,  0.27862913, -0.03877855],
+             [-0.03143936, -0.02726179, -0.01409563,  0.27862913,  1.        , -0.03944351],
+             [ 0.0222244 , -0.00461497,  0.01132714, -0.03877855, -0.03944351, 1.        ]])
+
 ### 3.2 Preprocessing Results
 
 For our initial preprocessing of the data, we first enforced the data types manually as all the data types were initially loaded as strings. We then limited the reviews to English. This is not entirely necessary for our analysis that focused mostly on playtime; however, we wanted an English audience to understand the individual reviews if necessary. Most of the reviews are in English (>49%), but our results should be limited to English speakers reviewing games for this reason. Next we filtered the “voted_up” column to only include 0 (negative review) and 1 (positive review) . This was because there were anomalies in the data; for example, we found a review in this column in one of the cells. We then limited our analysis to the voted up, playtime in the last two weeks, playtime at review, and playtime overall as we are only studying this relationship and did not need any other columns as they were not relevant for our specific study. Next we then ensured that no null values were present in our data. Finally we created a VectorAssembler set to skip invalid cells for use in PySpark machine learning.
@@ -181,13 +203,41 @@ First, we used a model with a log loss metric and then an accuracy metric to eva
 
 Our current model is fairly simple as it is a logistic regression model. In the log loss case, increasing the complexity (using a smaller regularization parameter) resulted in improvements to our test error, suggesting that we are likely to the left of the fitting graph and that complexity could improve our log loss model. 
 
-![Figure 8](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/70db058d-4da7-4ad9-a8d7-e3c1e2236ff)
+![Figure 8](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/163374052/ae50cf86-1e09-42a4-9f41-0ab41bd34397)
+
 
 Our model achieves ~86% accurancy in our training set, and ~68% in our test set, this is likely a sign that our model is overfitting to our training set.
 
 ### 3.4 Model 2 Results: Decision tree
 
+The decision tree classifier resulted in 86.67% accuracy.
 
+Sample predictions:
+
++-----+----------+--------------------+
+|label|prediction|         probability|
++-----+----------+--------------------+
+|  0.0|       1.0|[0.35060548180689...|
+|  1.0|       1.0|[0.35060548180689...|
+|  1.0|       1.0|[0.35060548180689...|
+|  0.0|       1.0|[0.35060548180689...|
+|  1.0|       1.0|[0.35060548180689...|
+|  0.0|       1.0|[0.29483476944470...|
+|  1.0|       1.0|[0.29483476944470...|
+|  1.0|       1.0|[0.10309560043470...|
+|  1.0|       1.0|[0.10309560043470...|
++-----+----------+--------------------+
+
+Summary of prediction results:
+
++-----+----------+-------+
+|label|prediction|  count|
++-----+----------+-------+
+|  1.0|       0.0|  77119|
+|  0.0|       0.0|  78019|
+|  1.0|       1.0|8553009|
+|  0.0|       1.0|1250902|
++-----+----------+-------+
 
 ## 4.0 Discussion 
 
@@ -199,7 +249,6 @@ Our model achieves ~86% accurancy in our training set, and ~68% in our test set,
 
 The first implementation of our model uses logistic regression. This was a logical choice as we are attempting to predict a binary variable of whether a user "upvotes" a particular game with their review based on various Steam user metrics (playtime in the last two weeks, at review, and overall). The ground truth assumption of our model is that as users play the game more (at review, overall, or over the last two weeks), we should expect that Steam users would be more positive in their reviews. Conversely, if they play the game less, we'd expect the opposite.
 
-
 However, in the case of the accuracy model, there seemed to be no improvement when increasing the size of the regularization parameter, as the error rates were stable and increased slightly in our smallest regularization parameter. In both cases our errors were fairly close to one another, suggesting we may be able to benefit from increased complexity in our models; although just a regularization parameter may not be the appropriate measure of complexity. 
 
 We may want to consider the choice of our predictor variables, as many of them—such as playtime in the last two weeks and overall playtime—may be autocorrelated. One could argue that high playtime in the last two weeks is correlated with higher overall playtime; after all, as playtime in the last two weeks increases, overall playtime also increases. Therefore, we may want to consider selecting different or fewer variables that are not dependent on one another, as they could be causing additional error.
@@ -208,27 +257,13 @@ Overall, our model may be biased due to our dataset mostly containing positive r
 
 ### 4.4 Model 2: Decision Tree
 
-		Interpretation of Results
+The second moodel we chose to use was a decision tree. This seemed like a reasonable alternative due to the binary label and straight forward features used.
 
-		Strengths and Weaknesses of Model
+While the model resulted in decent overall accuracy at 87%, this is a somewhat misleading metric. In reality, the decision tree was good at predicting *up* votes, but not *down* votes. This is likely due to the discrepancy between up and down votes in the data set, with up votes being significantly more common (people like video games!).
 
-		Potential Biases and Limitations of Model
 
-	Comparison
+Since this model may have some extensive over-fitting, and generally points to *any* playtime resulting in a postitive review, it would not be our model of choice compared to logistic regression as it would not be particularly helpful for game developers to understand their ratings.
 
-		Compare the logistic regression and decision tree
-		
-	Believability
-		
-		Credibility
-
-		Anomalies or unexpected findings
-
-	Critique and Reflection
-
-		Self-critique of model/interpretation
-
-		Areas for improvement
 		
 ## 5.0 Conclusion
 
@@ -252,7 +287,5 @@ Alison Cher: Contributed bulk of the code for the ML algorithms and models.
 
 ## 7.0 Final Model and Results and Summary
 
-	Final Model
-
-	Results Summary
+In summary, we would recommend pursuing a logistic regression model to understand the relationship between playtime and user reviews. This model resulted in 86% accuracy, and did not have as any issues with misclassifying negative versus positive reviews. Understanding how users interact with a game before deciding whether they like it can help game developers bridge the missing data gap between the vocal minority (reviewers) and the silent majority (players who do not leave reviews). This can go a long way toward understand why a game is getting the feedback it is, and whether the content of a game is good while the marketing may be lacking, or perhaps it is on the right track in improving but needs better implementation, or if a minority of players is particularly up in arms about a feature while the majority are still happily playing.
 
