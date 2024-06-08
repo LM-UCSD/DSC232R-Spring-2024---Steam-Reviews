@@ -56,6 +56,11 @@ Methods
 	
  	Visualizations of Data
 
+Data Exploration
+
+To explore the data, we first checked the data type of all the features. From here, we selected features of interest and reviewed a few lines of the data table to understand the scope of the contents. After this, we pulled a .describe() command to see summary statistics of the data as well as a count of rows.
+
+
 Preprocessing
 
 For our initial preprocessing of the data, we first enforced the data types manually as all the data types were initially loaded as strings. We then limited the reviews to English. This is not entirely necessary for our analysis that focused mostly on playtime; however, we wanted an English audience to understand the individual reviews if necessary. Most of the reviews are in English (>49%), but our results should be limited to English speakers reviewing games for this reason. Next we filtered the “voted_up” column to only include 0 (negative review) and 1 (positive review) . This was because there were anomalies in the data; for example, we found a review in this column in one of the cells. We then limited our analysis to the voted up, playtime in the last two weeks, playtime at review, and playtime overall as we are only studying this relationship and did not need any other columns as they were not relevant for our specific study. Next we then ensured that no null values were present in our data. Finally we created a VectorAssembler set to skip invalid cells for use in PySpark machine learning.
@@ -143,7 +148,7 @@ Conclusion
 
 
 Statement of Collaboration
-
+Lauren Marrs: I did a lot of the editing for the write-ups, worked on planning and laying out the code to explore our topic, and contributed to the final debugging to ensure our notebooks ran successfully.
 
 Final Model and Results and Summary
 
