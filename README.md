@@ -3,7 +3,7 @@ Analysis of Steam user reviews
 
 By Chase Farrell, Lauren Marrs, Alison Cher, Sahra Ranjbar
 
-Milestone 1:
+## Milestone 1:
 
 Abstract:
 Our team is seeking to explore the “100 Million+ Steam Reviews” dataset from Kaggle. This dataset contains 24 columns and over 100 million+ reviews.Steam allows users to review their gamers, and they can either leave a positive or negative review; other users can also rate their reviews. The data contains information on the users submitting the reviews (play time, games owned, reviewing history), as well as statistics pertaining to the review itself (upvotes, comments, positive/negative). Using this dataset we’d like to explore the relationship between steam players and their reviews.Our team is mainly interested in how playtime (all time, over last 2 weeks, at time of review, or when they last played) influences a users rating and how helpful other users find their review. Since our dataset is ~40 GBs, we will be using Pyspark to answer our questions. 
@@ -36,11 +36,10 @@ Description from Kaggle:
 
 When loading a SDSC Jupyter session we used:
 
-4 cores
+- 4 cores
+- 16 GB per node
 
-8 GB per node
-
-Milestone 2:
+## Milestone 2:
 
 The jupyter notebook contains code blocks to download the dataset.
 
@@ -57,7 +56,7 @@ The jupyter notebook contains several visualizations, including histograms and s
 
 NOTE: the x-axis for play time is on a logarithmic scale
 
-Milestone 3 
+## Milestone 3 
 
 The first implementatioin of our model uses logistic model. This was a logical choice as we are attempting to predict a binary variable of whether a user "upvotes" a particular game with their review based on various steam user metrics (Playtime in the last two weeks, at review, and overall). The ground truth of our model that we are assuming, is that as user play the game more (at review, overall, or over the last two weeks), we should expect that steam users would be more postive. Vice versa, if they play the game less we'd expect that we'd see the opposite. Our model achieves ~86% accurancy in our training set, and ~68% in our test set, this is likely a sign that our model is overfitting to our training set.
 
@@ -65,15 +64,15 @@ Our current model is farily uncomplex as it is a logistic model, but there seems
 
 Given these results for further models we may want to consider, like decision trees and random forests. Our current model assumses a linear relationship between our features and the log-odds outcome, we may want to consider a decision tree as it is more interpretable than our current choice. Although a decision tree could also be prone to overfitting, may want to start simple with our logistic model and continue to add complexity with decision trees and then random forests. Random forests are robust to overfitting which seems to be a difficulty in our current model.
 
-Milestone 4
+## Milestone 4
 
-Introduction
+### Introduction
 
 Steam, a video game digital distribution service, hosts over 34,000 games and is one of the largest digital storefronts for video games. As part of their storefront, Steam hosts user reviews of the games they distribute. Users may leave a positive or negative review with text and other users may give feedback to that review whether it was helpful or otherwise. The portion of positive to negative reviews creates an overall metric and a recent metric ranging from Overwhelming Positive (95% over more positive), Very Positive (80% of more), Mostly Positive (70%-79%), Mixed (40%-69%), Mostly Negative (20%-39%), Overwhelmingly Negative (0%-19%). Generally, developers would prefer to have their games on the positive side as this should understandably increase sales overtime. This project attempts to provide insight into steam reviews to give developers a better understanding of why users leave negative or positive reviews. 
 
 Using a 100+ Million Steam Review dataset sourced from Kaggle, our team seeks to better understand the relationship between steam players and their reviews. Using the data collected by the kaggle dataset, our team specifically explores the relationship between user playtime and whether they’d leave a negative or positive review. By using a logistic regression model, we attempt to predict whether a user leaves a positive or a negative review (Are we going to add a decision tree as well). The results of which allow developers to make decisions on the prioritization of user playtime in their games.
 
-Data Exploration and Methods
+### Data Exploration and Methods
 
 To explore the data, we first checked the data type of all the features. From here, we selected features of interest and reviewed a few lines of the data table to understand the scope of the contents. After this, we pulled a .describe() command to see summary statistics of the data as well as a count of rows.
 
@@ -85,7 +84,7 @@ This figure shows a relatively normal shape, with the majority of reviews being 
 ![Untitled](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/087e0adb-ee40-4dfd-9d5a-8bb12a7c9ecc)
 8)
 
-Overall, this shpae is different than the Playtime forever, there seems to be more negative reviews as playtime increase, but there is a peak at the low end of the graph. Perhaps recent playtime is not attributal to more reviews.
+Overall, this shape is different than the Playtime forever, there seems to be more negative reviews as playtime increase, but there is a peak at the low end of the graph. Perhaps recent playtime is not attributal to more reviews.
 
 ![Untitled](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/26560247-06ee-4271-8eff-6f128d4f5ebb)
 
@@ -105,21 +104,21 @@ There does seem to be a clear pattern here in the postiive direction between the
 
 This graph just looks like noise for the most part, if there is a patern betweeen the variables it is definitely not linear and not strong. There seems to be no pattern when comparing these two to each other. Seeing as there are no linear solutions that are obious to our questions. Our team seeked to use other means of predictive when users give positive or negative reviews, in order to make a prediction. The first choice could be a logistic regression as it can predict these binary outcomes, and the second choice could be a decision tree to visualize different decisions necessary in determining when a review will be positive. Thereout this paper, we seek to find a pattern that our initial data exploration does not make clear to us, although there are some catiousnary findings from the data exploration that we should keep in mind thereout, like the abundance of positive reviews that may bias the model towards a positive prediction.
 
-Preprocessing
+### Preprocessing
 
 For our initial preprocessing of the data, we first enforced the data types manually as all the data types were initially loaded as strings. We then limited the reviews to English. This is not entirely necessary for our analysis that focused mostly on playtime; however, we wanted an English audience to understand the individual reviews if necessary. Most of the reviews are in English (>49%), but our results should be limited to English speakers reviewing games for this reason. Next we filtered the “voted_up” column to only include 0 (negative review) and 1 (positive review) . This was because there were anomalies in the data; for example, we found a review in this column in one of the cells. We then limited our analysis to the voted up, playtime in the last two weeks, playtime at review, and playtime overall as we are only studying this relationship and did not need any other columns as they were not relevant for our specific study. Next we then ensured that no null values were present in our data. Finally we created a VectorAssembler set to skip invalid cells for use in PySpark machine learning.
 
-Model 1: Logistic Regression
+### Model 1: Logistic Regression
 
 The first implementatioin of our model uses logistic model. This was a logical choice as we are attempting to predict a binary variable of whether a user "upvotes" a particular game with their review based on various steam user metrics (Playtime in the last two weeks, at review, and overall). The ground truth of our model that we are assuming, is that as user play the game more (at review, overall, or over the last two weeks), we should expect that steam users would be more postive. Vice versa, if they play the game less we'd expect that we'd see the opposite.
 
-Model 2: Decision tree
+### Model 2: Decision tree
 
 	Parameter Choices and rationale
 
 	Model training and validation
 
-Results
+### Results
 
 	Model 1: Logistic Regression Results
  
@@ -131,7 +130,7 @@ Our model achieves ~86% accurancy in our training set, and ~68% in our test set,
 		
 		Visualization of Model
 
-Discussion Section
+### Discussion Section
 
 	Model 1: Logistic Regression Results
 
@@ -175,7 +174,7 @@ Overall, our model may be biased due to our dataset mostly containing positive r
 
 		Areas for improvement
 		
-Conclusion
+### Conclusion
 
 	Summary
 
@@ -184,18 +183,18 @@ Conclusion
 	Final Thoughts
 
 
-Statement of Collaboration
+### Statement of Collaboration
 
-Lauren Marrs: I contributed editing for the write-ups, worked on planning and laying out the code to explore our topic, and did final debugging to ensure our notebooks ran successfully.
+Lauren Marrs:  Did final debugging and cleaning for code, contributed to the write-up
 
-Sahra Ranjbar: I worked on the fitting graph and running the models to ensure no need for editing. 
+Sahra Ranjbar: Worked on the fitting graph and running the models to ensure no need for editing and contributed to the write-up.
 
-Chase Farrell: 
+Chase Farrell: Coded the preprocessing, contributed to debugging, and contributed to the write-up
 
-Alison Cher: 
+Alison Cher: Contributed bulk of the code for the ML algorithms and models.
 
 
-Final Model and Results and Summary
+### Final Model and Results and Summary
 
 	Final Model
 
