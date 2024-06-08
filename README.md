@@ -136,7 +136,7 @@ predict.select("label", "prediction", "probability").show()
 ### 3.1 Data Exploration Results
 
 To explore the data, we first checked the data type of all the features. We converted the values to integers, as the whole table was stored as strings. From here, we selected features of interest and reviewed a few lines of the data table to understand the scope of the contents. After this, we pulled a .describe() command to see summary statistics of the data as well as a count of rows. 
-
+```
 +-------+-----------------------+-------------------------+------------------------------+------------------+
 |summary|author_playtime_forever|author_playtime_at_review|author_playtime_last_two_weeks|          voted_up|
 +-------+-----------------------+-------------------------+------------------------------+------------------+
@@ -146,7 +146,7 @@ To explore the data, we first checked the data type of all the features. We conv
 |    min|                    0.0|                        0|                           0.0|               0.0|
 |    max|              6007985.0|                  4880175|                       56748.0|               1.0|
 +-------+-----------------------+-------------------------+------------------------------+------------------+
-
+```
 We took a random .5% sample of the >100 million reviews, resulting in a 200,000 row sample to work with. We put this sub-sample into a pandas dataframe to visualize. 
 
 Next we generated figures of our desired columns of study. We went through each temporal measurement of playtime (Playtime Forever, Playtime Last Two Weeks, and Playtime at review), with whether it was upvoted or not also shown. First the play time forever:
@@ -214,7 +214,7 @@ Our model achieves ~86% accurancy in our training set, and ~68% in our test set,
 The decision tree classifier resulted in 86.67% accuracy.
 
 Sample predictions:
-
+```
 +-----+----------+--------------------+
 |label|prediction|         probability|
 +-----+----------+--------------------+
@@ -228,9 +228,9 @@ Sample predictions:
 |  1.0|       1.0|[0.10309560043470...|
 |  1.0|       1.0|[0.10309560043470...|
 +-----+----------+--------------------+
-
+```
 Summary of prediction results:
-
+```
 +-----+----------+-------+
 |label|prediction|  count|
 +-----+----------+-------+
@@ -239,7 +239,7 @@ Summary of prediction results:
 |  1.0|       1.0|8553009|
 |  0.0|       1.0|1250902|
 +-----+----------+-------+
-
+```
 ## 4.0 Discussion 
 
 ### 4.1 Data Exploration
