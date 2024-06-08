@@ -63,15 +63,18 @@ To explore the data, we first checked the data type of all the features. From he
 
 ![Figure 1](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/4153bdbc-4973-4567-a838-03330677b9d7)
 
-![Figure 2](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/f5d099e5-4c24-41b2-96cd-fa0a2de98e28)
+![Untitled](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/087e0adb-ee40-4dfd-9d5a-8bb12a7c9ecc)
+8)
 
-![Figure 3](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/d1ab2ee8-74ea-4069-a0c9-6ef897b56f6c)
+![Untitled](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/26560247-06ee-4271-8eff-6f128d4f5ebb)
 
-![Figure 4](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/4016e2a5-1aee-4e0b-b0f7-447a9ca98a1d)
+![Untitled](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/44844c6f-58c0-40a0-94b1-662f1c222483)
 
-![Figure 5](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/da2a677a-8ad0-45aa-add0-0017f9537a45)
 
-![Figure 6](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/b6a7dcb5-0919-45e2-a165-2efa7a2fa276)
+![Untitled](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/856019d5-0f63-435b-9daa-32b08ad1e3d5)
+
+![Untitled](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/0c37059f-f764-4214-a128-803ffea088c3)
+
 
 ![Figure 7](https://github.com/LM-UCSD/DSC232R-Spring-2024---Steam-Reviews/assets/128201733/fb66d55c-6a79-4bf9-ae04-8abd12822f0e)
 
