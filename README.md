@@ -358,5 +358,5 @@ Sahra Ranjbar: Worked on the fitting graph and running the models to ensure no n
 
 Chase Farrell: Coded the preprocessing and intial data exploration, contributed to debugging, and contributed to the write-up by writing an outline of the material, the introduction, and the data exploration/pre-processing.
 
-Alison Cher: Contributed bulk of the code for the ML algorithms and models.
+Alison Cher: Contributed bulk of the code for the ML algorithms and models, coded the final fitting graph, reviewed write-up.
 
