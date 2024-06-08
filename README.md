@@ -321,19 +321,16 @@ Future research should expand the feature set to include additional variables su
 #### 5.3 Final Thoughts
 This project highlighted the complexities of user behavior and the challenges of predictive modeling in a real-world context. Our logistic regression model provided a straightforward and interpretable approach, while the decision tree model underscored the need for careful tuning to avoid biases towards the majority class. Moving forward, incorporating more diverse features, advanced modeling techniques, and robust validation strategies will be crucial in refining our predictive capabilities and providing actionable insights for game developers. By addressing the limitations and expanding the scope of our analysis, future research can build upon our findings to develop more accurate and reliable models that better capture the nuances of user reviews on digital platforms like Steam.
 
+Understanding how users interact with a game before deciding whether they like it can help game developers bridge the missing data gap between the vocal minority (reviewers) and the silent majority (players who do not leave reviews). This can go a long way toward understand why a game is getting the feedback it is, and whether the content of a game is good while the marketing may be lacking, or perhaps it is on the right track in improving but needs better implementation, or if a minority of players is particularly up in arms about a feature while the majority are still happily playing.
+
+
 
 ## 6.0 Statement of Collaboration
 
-Lauren Marrs:  Did final debugging and cleaning for code, contributed to the write-up
+Lauren Marrs:  Conducted final debugging and cleaning for code at each step and contributed to the write-up by providing editing for all areas, formatting corrections/cleanup, and contributing to the results and discussion sections.
 
-Sahra Ranjbar: Worked on the fitting graph and running the models to ensure no need for editing and contributed to the write-up.
+Sahra Ranjbar: Worked on the fitting graph and running the models to ensure no need for editing and contributed to the write-up by writing the discussion and conclusions.
 
-Chase Farrell: Coded the preprocessing, contributed to debugging, and contributed to the write-up
+Chase Farrell: Coded the preprocessing, contributed to debugging, and contributed to the write-up by writing an outline of the material, the introduction, the data exploration/pre-processing, and introduction.
 
 Alison Cher: Contributed bulk of the code for the ML algorithms and models.
-
-
-## 7.0 Final Model and Results and Summary
-
-In summary, we would recommend pursuing a logistic regression model to understand the relationship between playtime and user reviews. This model resulted in 86% accuracy, and did not have as any issues with misclassifying negative versus positive reviews. Understanding how users interact with a game before deciding whether they like it can help game developers bridge the missing data gap between the vocal minority (reviewers) and the silent majority (players who do not leave reviews). This can go a long way toward understand why a game is getting the feedback it is, and whether the content of a game is good while the marketing may be lacking, or perhaps it is on the right track in improving but needs better implementation, or if a minority of players is particularly up in arms about a feature while the majority are still happily playing.
-
