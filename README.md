@@ -280,8 +280,6 @@ Summary of prediction results:
 
 ### 4.1 Data Exploration
 
-The correlation matrix does confirm that there may be some positive correlation between play time and upvotes although it is not particularly strong (0.022). The only strong correlation is between playtime_forever and playtime_at_review (0.78), which may indicate that players who spend a lot of time playing before leaving a review are likely to continue playing.
-
 In reference to Figure 1, In General there seems to be more reviews with more playtime, but low playtime games tend to be more negative. Other things this may show us is that there tends to be more positive reviews in our dataset.
 
 With respect to the shape of Figure 2, perhaps recent playtime is not attributable to more reviews.
@@ -293,6 +291,8 @@ In Figure 4, looking at the results there doesn't seem to be any obvious pattern
 There does seem to be a clear pattern in Figure 5 in the positive direction between these two variables. It may make sense since the playtime forever is limiting the playtime at review, since it may never over take it. The edge is where the user stopped playing the game at the review. But there still isn't a clear indication that there are any patterns in when user's review positive or negative.
 
 Figure 6 just looks like noise for the most part, if there is a pattern between the variables it is definitely not linear and not strong. There seems to be no pattern when comparing these two to each other. Seeing as there are no linear solutions that are obvious to our questions. Our team seeked to use other means of prediction when users give positive or negative reviews, in order to make a prediction. The first choice could be a logistic regression as it can predict these binary outcomes, and the second choice could be a decision tree to visualize different decisions necessary in determining when a review will be positive. Thereout this paper, we seek to find a pattern that our initial data exploration does not make clear to us, although there are some cautionary findings from the data exploration that we should keep in mind thereout, like the abundance of positive reviews that may bias the model towards a positive prediction.
+
+The correlation matrix does confirm that there may be some positive correlation between play time and upvotes although it is not particularly strong (0.022). The only strong correlation is between playtime_forever and playtime_at_review (0.78), which may indicate that players who spend a lot of time playing before leaving a review are likely to continue playing.
 
 ### 4.2 Preprocessing
 
